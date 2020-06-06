@@ -12,6 +12,7 @@
     <input type="file"
        id="file" name="file"
        accept="image/png, image/jpeg">
+    <div id="image-container"></div>
     <div id="label-container"></div>
     <div id="conclusion-container"></div>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
@@ -38,6 +39,7 @@
             maxPredictions = model.getTotalClasses();
             labelContainer = document.getElementById("label-container");
             conclusion = document.getElementById("conclusion-container");
+            let imageContainer = document.getElementById("image-container");
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
             }
@@ -49,7 +51,10 @@
         async function predict() {
             // predict can take in an image, video or canvas html element
             let fileChooser = document.getElementById("file");
-            let image = fileChooser.files[0];
+            let file = fileChooser.files[0];
+            let image = new Image(100,200);
+            image.src = file;
+            imageContainer.append(image);
             const prediction = await model.predict(image);
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction =
