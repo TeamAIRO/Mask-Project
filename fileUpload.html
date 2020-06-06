@@ -24,7 +24,7 @@
         // the link to your model provided by Teachable Machine export panel
         const URL = "https://teachablemachine.withgoogle.com/models/KW_W0O3qI/";
 
-        let model, webcam, labelContainer, maxPredictions, conclusion;
+        let model, webcam, labelContainer, maxPredictions, conclusion, imageContainer;
 
         // Load the image model and setup the webcam
         async function init() {
@@ -39,7 +39,7 @@
             maxPredictions = model.getTotalClasses();
             labelContainer = document.getElementById("label-container");
             conclusion = document.getElementById("conclusion-container");
-            let imageContainer = document.getElementById("image-container");
+            imageContainer = document.getElementById("image-container");
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
             }
