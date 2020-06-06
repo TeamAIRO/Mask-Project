@@ -66,8 +66,8 @@
                     prediction[i].className + ": " + prediction[i].probability.toFixed(2);
                 labelContainer.childNodes[i].innerHTML = classPrediction;
             }
-            let noMaskProb = prediction[0].probability;
-            let maskProb = prediction[1].probability;
+            let noMaskProb = prediction[1].probability;
+            let maskProb = prediction[0].probability;
             if(noMaskProb > 0.85){
               conclusion.innerHTML = "Not masked";
             }
