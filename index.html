@@ -61,7 +61,12 @@
                 labelContainer.appendChild(document.createElement("div"));
             }
         }
-
+        
+        function PlaySoundWav(soundObj) {
+          var audio = new Audio(soundObj + '.wav');
+          audio.play();
+        }
+      
         async function loop() {
             webcam.update(); // update the webcam frame
             await predict();
@@ -114,6 +119,10 @@
             }
             else{
               personContainer.innerHTML = "Not Known";
+            }
+          
+            if(prediction2[0].probability > 0.85){
+              PlaySoundWav("beep01");
             }
         }
     </script>
