@@ -71,9 +71,13 @@
             let maskProb = prediction[0].probability;
             if(noMaskProb > 0.85){
               conclusion.innerHTML = "Dangerous (No Mask)";
+              labelContainer.style.backgroundColor = "red";
+              conclusion.style.backgroundColor = "red";
             }
             else if(maskProb > 0.85){
               conclusion.innerHTML = "Not dangerous (Masked person or No Person)";
+              labelContainer.style.backgroundColor = "green";
+              conclusion.style.backgroundColor = "green";
             }
             else{
               conclusion.innerHTML = "Inconclusive";
