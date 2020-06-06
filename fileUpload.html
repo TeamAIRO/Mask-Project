@@ -52,6 +52,7 @@
             let image = new Image(200,200);
             const reader = new FileReader();
             reader.addEventListener("load", async function () {
+              imageContainer.append(image);
               image.src = reader.result;
               await predict(image);
             }, false);
@@ -62,7 +63,6 @@
       
         async function predict(image) {
             // predict can take in an image, video or canvas html element
-            imageContainer.append(image);
             const prediction = await model.predict(image);
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction =
