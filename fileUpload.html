@@ -52,7 +52,7 @@
             let fileChooser = document.getElementById("file");
             let file = fileChooser.files[0];
             let image = new Image(100,200);
-            image.src = file.name;
+            image.src = file.webkitRelativePath;
             imageContainer.append(image);
             const prediction = await model.predict(image);
             for (let i = 0; i < maxPredictions; i++) {
