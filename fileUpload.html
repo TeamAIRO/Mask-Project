@@ -51,7 +51,7 @@
             let file = fileChooser.files[0];
             let image = new Image(100,200);
             const reader = new FileReader();
-            reader.addEventListener("load", function () {
+            reader.addEventListener("load", async function () {
               image.src = reader.result;
               await predict(image);
             }, false);
