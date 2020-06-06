@@ -43,17 +43,25 @@
             for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
             }
-            await predict();
+            await fileLoad();
         }
 
-        // run the webcam image through the image model
-        async function predict() {
-            // predict can take in an image, video or canvas html element
+        async function fileLoad(){
             let fileChooser = document.getElementById("file");
             let file = fileChooser.files[0];
             let image = new Image(100,200);
-            image.src = file.webkitRelativePath;
-            console.log(file.webkitRelativePath);
+            const reader = new FileReader();
+            reader.addEventListener("load", function () {
+              image.src = reader.result;
+              await predict(image);
+            }, false);
+            if (file) {
+              reader.readAsDataURL(file);
+            }
+        }
+      
+        async function predict(image) {
+            // predict can take in an image, video or canvas html element
             imageContainer.append(image);
             const prediction = await model.predict(image);
             for (let i = 0; i < maxPredictions; i++) {
