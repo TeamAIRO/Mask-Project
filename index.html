@@ -69,10 +69,10 @@
             let noMaskProb = prediction[1].probability;
             let maskProb = prediction[0].probability;
             if(noMaskProb > 0.85){
-              conclusion.innerHTML = "Not masked";
+              conclusion.innerHTML = "Dangerous (No Mask)";
             }
             else if(maskProb > 0.85){
-              conclusion.innerHTML = "Masked";
+              conclusion.innerHTML = "Not dangerous (Masked person or No Person)";
             }
             else{
               conclusion.innerHTML = "Inconclusive";
