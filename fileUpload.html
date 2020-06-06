@@ -49,7 +49,7 @@
         async function fileLoad(){
             let fileChooser = document.getElementById("file");
             let file = fileChooser.files[0];
-            let image = new Image(100,200);
+            let image = new Image(200,200);
             const reader = new FileReader();
             reader.addEventListener("load", async function () {
               image.src = reader.result;
