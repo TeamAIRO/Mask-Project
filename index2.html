@@ -109,7 +109,7 @@
             }
             
             if(siddhantProb > 0.80){
-              personContainer.innerHTML = "Siddhant";
+              personContainer.innerHTML = "Siddhant " + siddhantProb;
             }
             else if(sammyProb > 0.80){
               personContainer.innerHTML = "Sammy";
@@ -118,7 +118,7 @@
               personContainer.innerHTML = "Om";
             }
             else{
-              personContainer.innerHTML = "Not Known";
+              personContainer.innerHTML = "Not Known " + siddhantProb;
             }
             
             //personContainer.innerHTML = prediction2[0].probability;
