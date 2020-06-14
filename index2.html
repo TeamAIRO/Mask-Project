@@ -109,7 +109,7 @@
             }
             
             if(siddhantProb > 0.80){
-              personContainer.innerHTML = "Siddhant " + siddhantProb + "         " + prediction2[0].probability;
+              personContainer.innerHTML = "Siddhant" + " " + otherPrediction[0].className + " " + otherPrediction[1].className + " " + otherPrediction[2].className + " " + otherPrediction[3].className + " " + prediction2[0].className + " " + prediction2[1].className;
             }
             else if(sammyProb > 0.80){
               personContainer.innerHTML = "Sammy";
@@ -118,14 +118,13 @@
               personContainer.innerHTML = "Om";
             }
             else{
-              personContainer.innerHTML = "Not Known " + siddhantProb +  "        " + prediction2[0].probability;
+              personContainer.innerHTML = "Not Known " + otherPrediction[0].className + " " + otherPrediction[1].className + " " + otherPrediction[2].className + " " + otherPrediction[3].className + " " + prediction2[0].className + " " + prediction2[1].className;
             }
             
             //personContainer.innerHTML = prediction2[0].probability;
             if(prediction2[0].probability > 0.75){
               PlaySoundWav("beep-01a");
             }
-            console.log(prediction2[0].name);
         }
     </script>
 
