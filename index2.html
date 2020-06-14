@@ -107,7 +107,7 @@
               labelContainer.style.backgroundColor = "white";
               conclusion.style.backgroundColor = "white";
             }
-          
+            /*
             if(siddhantProb > 0.80){
               personContainer.innerHTML = "Siddhant";
             }
@@ -120,7 +120,8 @@
             else{
               personContainer.innerHTML = "Not Known";
             }
-          
+            */
+            personContainer.innerHTML = prediction2[0].probability;
             if(prediction2[0].probability > 0.75){
               PlaySoundWav("beep-01a");
             }
